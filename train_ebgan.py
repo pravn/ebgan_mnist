@@ -44,8 +44,8 @@ def run_trainer(train_loader, netD, netG, args):
 
     margin = args.margin
 
-    optimizerD = optim.Adam(netD.parameters(), lr=1e-3, betas=(0.5,0.999))
-    optimizerG = optim.Adam(netG.parameters(), lr=1e-4,betas=(0.5,0.999))
+    optimizerD = optim.Adam(netD.parameters(), lr=args.lr_G, betas=(0.5,0.999))
+    optimizerG = optim.Adam(netG.parameters(), lr=args.lr_D,betas=(0.5,0.999))
 
     noise = torch.FloatTensor(args.batch_size, args.n_z, 1, 1)
     noise = noise.cuda()
